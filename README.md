@@ -17,7 +17,7 @@ parameters:
 
 To allow Veeam Kasten to mount as Read-Only your application PVC's snapshot you'll need to add an annotation to this newly created storage class:
 
-```shell
+```console
 kubectl annotate storageclass $SHALLOW_CSI_STORAGE_CLASS \
     k10.kasten.io/sc-supports-read-only-mount="true"
 ```
@@ -25,7 +25,7 @@ kubectl annotate storageclass $SHALLOW_CSI_STORAGE_CLASS \
 
 Create a PVC in a new namespace on the existing CephFS storage class:
 
-```shell
+```console
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
@@ -42,7 +42,7 @@ spec:
 
 Create a pod in this namespace, mount the PVC and create a test file:
 
-```shell
+```console
 apiVersion: v1
 kind: Pod
 metadata:
@@ -91,7 +91,7 @@ In the "Exporter Storage Class Name" provide the $SHALLOW_CSI_STORAGE_CLASS name
 Save your policy and execute it.
 
 This will actually add in the policy:
-```shell
+```console
 exportData:
   enabled: true
   overrides:
