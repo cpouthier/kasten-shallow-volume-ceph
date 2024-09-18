@@ -86,7 +86,9 @@ status: {}`
 ## Test the backup of your namespace with Veeam Kasten
 
 Create a policy (snapshot) in Veeam Kasten as you would do usually and select "Enable backups via snapshot exports". Select the location profile where you want to export your backup and click on the "Advanced Export Settings".
+
 A new panel will open on the left.
+
 In the "Exporter Storage Class Name" provide the $SHALLOW_CSI_STORAGE_CLASS name, click on "Add new override" and in the "Storage Class Name Override" provide the $EXISTING_CEPH_FS_STORAGE_CLASS name.
 Save your policy and execute it.
 
